@@ -47,22 +47,19 @@ Feature scaling is essential because logistic regression is sensitive to feature
 
 Logistic regression models the **probability** that a data point belongs to class 1:
 
-\[
-P(y = 1 \mid \mathbf{x}) = \sigma(z) = \frac{1}{1 + e^{-z}}
-\]
+P(y = 1 | x) = 1 / (1 + exp(-(w^T x + b)))
 
 where
 
-\[
-z = \mathbf{w}^\top \mathbf{x} + b
-\]
+z = w^T x + b
 
-- \(\mathbf{x}\) is the feature vector
-- \(\mathbf{w}\) are the learned coefficients
-- \(b\) is the intercept
-- \(\sigma(\cdot)\) is the sigmoid function
 
-The output is a probability in \([0,1]\).
+- x is the feature vector  
+- w are the learned coefficients  
+- b is the intercept  
+- exp(.) denotes the exponential function  
+
+The output is a probability in the range [0, 1].
 
 ---
 
@@ -70,14 +67,8 @@ The output is a probability in \([0,1]\).
 
 The predicted class is obtained by thresholding the probability:
 
-\[
-\hat{y} =
-\begin{cases}
-1 & \text{if } P(y=1 \mid x) \ge 0.5 \\
-0 & \text{otherwise}
-\end{cases}
-\]
-
+If P(y = 1 | x) >= 0.5, then y_hat = 1  
+Otherwise, y_hat = 0
 ---
 
 ## Probability Prediction
@@ -99,17 +90,11 @@ Important detail:
 
 Log loss (cross-entropy loss) penalizes incorrect and **overconfident** predictions:
 
-\[
-\text{LogLoss} = -\frac{1}{N}
-\sum_{i=1}^{N}
-\left[
-y_i \log(p_i) + (1 - y_i)\log(1 - p_i)
-\right]
-\]
+LogLoss = -(1 / N) * sum_{i=1 to N} [ y_i * log(p_i) + (1 - y_i) * log(1 - p_i) ]
 
-Where:
-- \(y_i \in \{0,1\}\) is the true label
-- \(p_i\) is the predicted probability for class 1
+where:
+- y_i is the true label (0 or 1)
+- p_i is the predicted probability for class 1
 
 Lower log loss indicates:
 - Better probability calibration
