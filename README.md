@@ -69,7 +69,7 @@ The predicted class is obtained by thresholding the probability:
 
 If P(y = 1 | x) >= 0.5, then y_hat = 1  
 Otherwise, y_hat = 0
----
+
 
 ## Probability Prediction
 
