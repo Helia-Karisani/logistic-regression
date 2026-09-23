@@ -154,4 +154,4 @@ Coefficients operate in **log-odds space**, not probability space.
 
 ## Final Note
 
-This notebook emphasizes **correct modeling practices**, careful evaluation, and debugging awareness — particularly around probability outputs and feature pipelines.
+This notebook emphasizes **correct modeling practices**, careful evaluation, and debugging awareness, particularly around probability outputs and feature pipelines.
